@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: v003-1-create-users-table
+      context: ddl
+      author: Joao Vitor de Oliveira Santos
+      changes:
+        - createTable:
+            schemaName: discuss_hub
+            tableName: tb_users
+            columns:
+              - column:
+                  name: id
+                  type: number(10, 0)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar2(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar2(30)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: email
+                  type: varchar2(80)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar2(120)
+                  constraints:
+                    nullable: false
